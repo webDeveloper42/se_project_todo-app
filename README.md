@@ -1,17 +1,20 @@
 # Simple Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+Just a simple todo app.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+You can create a todo and mark wether it is completed or not.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+- Html
+- CSS
+- Js
+- OOP
 
 ## Deployment
 
 This project is deployed on GitHub Pages:
 
-- ADD LINK HERE
+[Link to site](https://webdeveloper42.github.io/se_project_todo-app/)
