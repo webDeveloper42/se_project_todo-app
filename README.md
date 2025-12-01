@@ -1,10 +1,12 @@
 # Simple Todo App
 
-Just a simple todo app.
+Just a simple todo app. But complex under the hood - slightly.
 
 ## Functionality
 
-You can create a todo and mark wether it is completed or not.
+- Add todo
+- Remove todo
+- Assign date
 
 ## Technology
 
@@ -12,6 +14,8 @@ You can create a todo and mark wether it is completed or not.
 - CSS
 - Js
 - OOP
+- DOM
+- Database Management(uuidv4 logging)
 
 ## Deployment
 
