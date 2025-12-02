@@ -7,11 +7,13 @@ Just a simple todo app. But complex under the hood - slightly.
 - Add todo
 - Remove todo
 - Assign date
+- Mark Complete on a todo
 
 ## Technology
 
 - Html
 - CSS
+- UI(just a tiny bit)
 - Js
 - OOP
 - DOM
