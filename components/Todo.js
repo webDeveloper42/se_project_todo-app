@@ -1,15 +1,12 @@
-import { addTodoButton, addTodoCloseBtn } from "../pages/index.js";
 class Todo {
   constructor(data, selector) {
     this._data = data;
     this._templateElement = document.querySelector(selector);
-    console.log(data);
-    console.log(selector);
   }
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
     this._todoLabel = this._todoElement.querySelector(".todo__label");
-    this._todoCheckboxEl.checked = this._data.checked;
+    this._todoCheckboxEl.checked = this._data.completed;
     this._todoCheckboxEl.id = `todo-${this._data.id}`;
     this._todoLabel.setAttribute("for", `todo-${this._data.id}`);
   }
@@ -20,7 +17,6 @@ class Todo {
     });
     this._todoCheckboxEl.addEventListener("change", () => {
       this._data.completed = !this._data.completed;
-      console.log(this._data.completed);
     });
   }
   getView() {
