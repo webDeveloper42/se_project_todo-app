@@ -7,10 +7,13 @@ class Section{
     renderItems(){
         this._items.forEach(item => {
             //call renderer and pass the item as an argument
+            this._renderer(item);
         });
     }
     addItem(element){
         //Add element to the container
+        this._container.append(element);
+
     }
 }
 export default Section;
