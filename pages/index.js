@@ -23,8 +23,7 @@ const section = new Section({
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
 };
-//call section instance's renderItems method
-section.renderItems();
+
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
@@ -61,7 +60,12 @@ addTodoForm.addEventListener("submit", (evt) => {
   closeModal(addTodoPopup);
 });
 
-
+// initialTodos.forEach((item) => {
+//   const todo = generateTodo(item);
+//   todosList.append(todo); //use addItem method instead
+// });
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator._enableValidation();
+//call section instance's renderItems method
+section.renderItems();
