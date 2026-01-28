@@ -16,7 +16,7 @@ const section = new Section({
     //generate todo item
     //add it to the todo list
     //refer to the foreach loop in this file
-    this.addItem(item);
+    generateTodo(item);
   }, 
   containerSelector: ".todo_list"});
 
