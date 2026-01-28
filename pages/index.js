@@ -3,12 +3,18 @@ import Todo from "../components/Todo.js";
 import { v4 as uuidv4 } from "https://jspm.dev/uuid";
 import FormValidator from "../components/formValidator.js";
 import Section from "../components/SectionClass.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 export const addTodoButton = document.querySelector(".button_action_add");
-const addTodoPopup = document.querySelector("#add-todo-popup");
-const addTodoForm = addTodoPopup.querySelector(".popup__form");
-export const addTodoCloseBtn = addTodoPopup.querySelector(".popup__close");
+const addTodoPopEl = document.querySelector("#add-todo-popup");
+const addTodoForm = addTodoPopEl.querySelector(".popup__form");
+export const addTodoCloseBtn = addTodoPopEl.querySelector(".popup__close");
 const todosList = document.querySelector(".todos__list");
 
+const addTodoPopup = new PopupWithForm({popupSelector:"#add-todo-popup",
+  handleFormSubmit:()=>{
+
+  }
+});
 const section = new Section({
   items:initialTodos, //pass initial todos
   renderer:(item) =>{
@@ -16,24 +22,26 @@ const section = new Section({
     //generate todo item
     //add it to the todo list
     //refer to the foreach loop in this file
-    generateTodo(item);
+    return generateTodo(item);
   }, 
-  containerSelector: ".todo_list"});
+  containerSelector: ".todos__list"});
 
 const openModal = (modal) => {
   modal.classList.add("popup_visible");
 };
+
+console.log(document.querySelector(".todos_list")); // should log the container element
 
 
 const closeModal = (modal) => {
   modal.classList.remove("popup_visible");
 };
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopup);
+  openModal(addTodoPopEl);
 });
 
 addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopup);
+  closeModal(addTodoPopEl);
 });
 
 const generateTodo = (data) => {
@@ -57,7 +65,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const todo = generateTodo(values);
   //todosList.append(todo);//use addItem method instead
   section.addItem(todo);
-  closeModal(addTodoPopup);
+  closeModal(addTodoPopEl);
 });
 
 // initialTodos.forEach((item) => {

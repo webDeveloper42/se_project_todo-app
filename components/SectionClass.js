@@ -7,7 +7,8 @@ class Section{
     renderItems(){
         this._items.forEach(item => {
             //call renderer and pass the item as an argument
-            this._renderer(item);
+            const element = this._renderer(item);
+            this.addItem(element);
         });
     }
     addItem(element){
