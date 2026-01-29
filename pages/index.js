@@ -15,6 +15,7 @@ const addTodoPopup = new PopupWithForm({popupSelector:"#add-todo-popup",
 
   }
 });
+addTodoPopup.setEventListeners();
 const section = new Section({
   items:initialTodos, //pass initial todos
   renderer:(item) =>{
@@ -26,23 +27,21 @@ const section = new Section({
   }, 
   containerSelector: ".todos__list"});
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
-
-console.log(document.querySelector(".todos_list")); // should log the container element
+// const openModal = (modal) => {
+//   modal.classList.add("popup_visible");
+// };
 
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
+// const closeModal = (modal) => {
+//   modal.classList.remove("popup_visible");
+// };
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopEl);
+  addTodoPopup.open();
 });
 
-addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopEl);
-});
+// addTodoCloseBtn.addEventListener("click", () => {
+//   addTodoPopup.close();
+// });
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
@@ -51,22 +50,22 @@ const generateTodo = (data) => {
   return todoElement;
 };
 
-addTodoForm.addEventListener("submit", (evt) => {
-  evt.preventDefault();
-  const name = evt.target.name.value;
-  const dateInput = evt.target.date.value;
+// addTodoForm.addEventListener("submit", (evt) => {
+//   evt.preventDefault();
+//   const name = evt.target.name.value;
+//   const dateInput = evt.target.date.value;
 
   
-  const date = new Date(dateInput);
-  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+//   const date = new Date(dateInput);
+//   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
 
-  const id = uuidv4();
-  const values = { name, date, id };
-  const todo = generateTodo(values);
-  //todosList.append(todo);//use addItem method instead
-  section.addItem(todo);
-  closeModal(addTodoPopEl);
-});
+//   const id = uuidv4();
+//   const values = { name, date, id };
+//   const todo = generateTodo(values);
+//   //todosList.append(todo);//use addItem method instead
+//   section.addItem(todo);
+//   addTodoPopup.close();
+// });
 
 // initialTodos.forEach((item) => {
 //   const todo = generateTodo(item);
