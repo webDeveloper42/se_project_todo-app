@@ -17,31 +17,15 @@ const addTodoPopup = new PopupWithForm({popupSelector:"#add-todo-popup",
 });
 addTodoPopup.setEventListeners();
 const section = new Section({
-  items:initialTodos, //pass initial todos
+  items:initialTodos, 
   renderer:(item) =>{
-    //write the function
-    //generate todo item
-    //add it to the todo list
-    //refer to the foreach loop in this file
     return generateTodo(item);
   }, 
   containerSelector: ".todos__list"});
 
-// const openModal = (modal) => {
-//   modal.classList.add("popup_visible");
-// };
-
-
-// const closeModal = (modal) => {
-//   modal.classList.remove("popup_visible");
-// };
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
-
-// addTodoCloseBtn.addEventListener("click", () => {
-//   addTodoPopup.close();
-// });
 
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
@@ -74,5 +58,4 @@ const generateTodo = (data) => {
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
 newTodoValidator._enableValidation();
-//call section instance's renderItems method
 section.renderItems();
