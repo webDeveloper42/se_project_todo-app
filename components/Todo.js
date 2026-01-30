@@ -3,11 +3,8 @@ class Todo {
     this._completed = data.completed
     this._data = data;
     this._templateElement = document.querySelector(selector);
-<<<<<<< HEAD
-=======
     this._handleCheck = handleCheck;
     this._handleDelete = handleDelete;
->>>>>>> development
   }
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
@@ -23,12 +20,8 @@ class Todo {
       this._handleDelete(this._completed);
     });
     this._todoCheckboxEl.addEventListener("change", () => {
-<<<<<<< HEAD
-      this._data.completed = !this._data.completed;
-=======
       this._data.completed = this._todoCheckboxEl.checked;
       this._handleCheck(this._todoCheckboxEl.checked);
->>>>>>> development
     });
   }
   getView() {
