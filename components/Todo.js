@@ -1,10 +1,11 @@
 import { addTodoButton, addTodoCloseBtn } from "../pages/index.js";
 class Todo {
-  constructor(data, selector) {
+  constructor(data, selector, handleCheck, handleDelete) {
+    this._completed = data.completed
     this._data = data;
     this._templateElement = document.querySelector(selector);
-    console.log(data);
-    console.log(selector);
+    this._handleCheck = handleCheck;
+    this._handleDelete = handleDelete;
   }
   _generateCheckboxEl() {
     this._todoCheckboxEl = this._todoElement.querySelector(".todo__completed");
@@ -17,10 +18,11 @@ class Todo {
     //set up delete button handler
     this._todoDeleteBtn.addEventListener("click", () => {
       this._todoElement.remove();
+      this._handleDelete(this._completed);
     });
     this._todoCheckboxEl.addEventListener("change", () => {
-      this._data.completed = !this._data.completed;
-      console.log(this._data.completed);
+      this._data.completed = this._todoCheckboxEl.checked;
+      this._handleCheck(this._todoCheckboxEl.checked);
     });
   }
   getView() {
