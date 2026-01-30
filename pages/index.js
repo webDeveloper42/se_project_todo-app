@@ -56,5 +56,5 @@ const generateTodo = (data) => {
 };
 
 const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
-newTodoValidator._enableValidation();
+newTodoValidator.enableValidation();
 section.renderItems();
