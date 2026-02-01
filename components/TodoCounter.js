@@ -5,9 +5,6 @@ constructor(todos, selector) {
     this._total = todos.length;
     this._completed = todos.filter((todo) => todo.completed).length
     this._updateText();
-    console.log(this._element)
-    console.log(this._completed)
-    console.log(this._total)
 }
 
   // Call this when a checkbox is clicked, and when a completed
